@@ -4,11 +4,7 @@
       <span class="logo">Zero</span>
     </div>
     <div class="route-links">
-      <a @click="change">Top</a>
-      <a @click="change">New</a>
-      <a @click="change">Show</a>
-      <a @click="change">Ask</a>
-      <a @click="change">Job</a>
+      <a @click="change" v-for="arr of array">{{ arr }}</a>
     </div>
     <div class="build-framework">
       <span>Built with Vue 2.0</span>
@@ -19,6 +15,11 @@
 <script type="text/ecmascript-6">
 export default {
   name: 'pageHeader',
+  data: function () {
+    return {
+      array: ['Top', 'New', 'Show', 'Ask', 'Job']
+    }
+  },
   methods: {
     change: function (event) {
       let type = event.target.innerHTML.toLowerCase()
